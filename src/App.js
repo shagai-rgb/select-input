@@ -1,5 +1,7 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
-import "./App.css";
+
+import "./Style.css";
 
 const data = [
   { value: "australia", label: "Australia" },
@@ -39,20 +41,19 @@ const App = () => {
   };
 
   const handleKey = (e) => {
-    if (newData.length !== 0) {
+    if (newData.length) {
       if (e.key === "ArrowDown" && activeIndex < newData.length - 1) {
         setActiveIndex((prev) => prev + 1);
-      }
-      if (e.key === "ArrowUp" && activeIndex > 0) {
+      } else if (e.key === "ArrowUp" && activeIndex > 0) {
         setActiveIndex((prev) => prev - 1);
+      } else if (e.key === "Enter") {
+        const selected = newData[activeIndex];
+        setRegion((prev) => [...prev, selected]);
+        setNewData((prev) => prev.filter((el) => el !== selected));
+        setActiveIndex(Math.max(activeIndex - 1, 0));
       }
-      if (e.key === "Enter") {
-        setRegion((prev) => [...prev, newData[activeIndex]]);
-        setNewData(newData.filter((el) => el !== newData[activeIndex]));
-        if (activeIndex !== 0) {
-          setActiveIndex((prev) => prev - 1);
-        }
-      }
+    } else {
+      setToggle(false);
     }
   };
 
@@ -79,6 +80,7 @@ const App = () => {
           <div className="Label">Select region</div>
           <div className="input-container">
             <div
+              data-testid="keyDown"
               className="input-regions"
               onKeyDown={(e) => {
                 handleKey(e);
@@ -94,6 +96,7 @@ const App = () => {
                     <span key={index} value={el.value} className="region">
                       {el.label}
                       <div
+                        data-testid={`delete-region${index}`}
                         onClick={() => {
                           setRegion((prev) =>
                             prev.filter((item) => item.value !== el.value)
@@ -119,6 +122,7 @@ const App = () => {
                   );
                 })}
                 <input
+                  data-testid="input"
                   style={{ width: 20 + length * 7 }}
                   type="text"
                   value={inputValue}
@@ -147,6 +151,7 @@ const App = () => {
               </div>
             </div>
             <div
+              data-testid="clear-button"
               onClick={() => {
                 setNewData(data);
                 setRegion([]);
@@ -159,6 +164,7 @@ const App = () => {
               x
             </div>
             <div
+              data-testid="toggle-button"
               onClick={() => {
                 setToggle(!toggle);
                 inputRef.current.focus();
@@ -171,9 +177,10 @@ const App = () => {
           <div className={`${toggle ? "options" : "options-hidden"}`}>
             <ul className="option-list">
               {newData.map((el, index) => {
-                const label = el.label || "";
+                const label = el.label;
                 return (
                   <li
+                    data-testid={`region${index}`}
                     onMouseEnter={() => setActiveIndex(index)}
                     onClick={() => {
                       setRegion((prev) => [...prev, el]);
