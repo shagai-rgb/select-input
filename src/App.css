@@ -114,23 +114,31 @@
   padding-top: 2px;
   padding-bottom: 5px;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 16px;
   color: black;
 }
 .region-delete-button {
   width: 20px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
   color: #4d4d4d;
 }
 .region-delete-button:hover {
   color: rgb(40, 243, 165);
+}
+.placeholder {
+  position: absolute;
+}
+.Label {
+  font-size: 20px;
 }
 .select {
   overflow: hidden;
   height: auto;
 }
 .region-select-container {
+  align-items: start;
+  width: 412px;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -145,7 +153,7 @@
   text-align: start;
   padding: 10px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .active {
@@ -154,9 +162,10 @@
   text-align: start;
   padding: 10px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
 }
 .option-list {
+  width: 412px;
   list-style-type: none;
   padding: 0px;
   margin: 0px;
@@ -169,5 +178,5 @@
   border: 1px, solid, grey;
   text-align: start;
   padding: 10px;
-  font-size: 20px;
+  font-size: 16px;
 }

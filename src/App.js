@@ -76,6 +76,7 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="region-select-container">
+          <div className="Label">Select region</div>
           <div className="input-container">
             <div
               className="input-regions"
@@ -85,6 +86,9 @@ const App = () => {
               onClick={handleInputRegionClick}
             >
               <div className="regions">
+                {region.length === 0 && inputValue === "" && (
+                  <span className="placeholder">Select region</span>
+                )}
                 {region.map((el, index) => {
                   return (
                     <span key={index} value={el.value} className="region">
