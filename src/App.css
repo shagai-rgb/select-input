@@ -1,0 +1,173 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(219, 219, 219);
+}
+
+.input-container {
+  display: flex;
+  width: 400px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 6px;
+  min-height: 40px;
+  padding-left: 8px;
+  position: relative;
+  align-items: center;
+  height: fit-content;
+}
+.input {
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  height: 25px;
+}
+.clear-button {
+  position: absolute;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.clear-button:hover {
+  color: rgb(98, 98, 228);
+}
+.select-input-button {
+  position: absolute;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  right: 0px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.select-input-button:hover {
+  color: rgb(98, 98, 228);
+}
+.input-regions {
+  display: flex;
+  flex-wrap: wrap;
+  cursor: text;
+  width: 315px;
+  height: fit-content;
+  gap: 10px;
+  align-items: center;
+}
+.regions {
+  display: flex;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.region {
+  background-color: rgb(185, 185, 185);
+  display: flex;
+  gap: 2px;
+  padding-left: 8px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+  border-radius: 8px;
+  font-size: 20px;
+  color: black;
+}
+.region-delete-button {
+  width: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #4d4d4d;
+}
+.region-delete-button:hover {
+  color: rgb(40, 243, 165);
+}
+.select {
+  overflow: hidden;
+  height: auto;
+}
+.region-select-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 200px;
+}
+.options {
+  background-color: beige;
+}
+.option {
+  background-color: white;
+  border: 1px, solid, grey;
+  text-align: start;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.active {
+  background-color: rgb(182, 182, 182);
+  border: 1px, solid, grey;
+  text-align: start;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.option-list {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.options-hidden {
+  display: none;
+}
+.option-empty {
+  background-color: white;
+  border: 1px, solid, grey;
+  text-align: start;
+  padding: 10px;
+  font-size: 20px;
+}
