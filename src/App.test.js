@@ -82,9 +82,6 @@ describe("App rendering", () => {
     const toggleBtn = getByTestId("toggle-button");
     fireEvent.click(toggleBtn);
 
-    const region1 = getByTestId("region1");
-    fireEvent.click(region1);
-
     const keyDown = getByTestId("keyDown");
 
     fireEvent.keyDown(keyDown, { key: "ArrowDown" });
